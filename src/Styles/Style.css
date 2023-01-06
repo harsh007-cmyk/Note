@@ -1,0 +1,94 @@
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+.Auth-div{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(80,86,84,0.3);
+}
+.user-form{
+    display: flex;
+    flex-direction: column;
+    background-color:white;
+    width: 25%;
+    height: 50%;
+   border-radius: 5px;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.user-form button{
+    background-color: orange;
+    height: 10%;
+    border: none;
+    
+}
+.user-form label{
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    font-weight: 700;
+}
+.user-form input{
+   height: 2rem;
+}
+ .user-form h3{
+    text-align: center;
+    color: black;
+    margin: 0;
+ }
+
+.Folders{
+    background-color:blue;
+    margin: 0;
+    
+}
+.reg-header-div{
+    background-color: green;
+    height: 3.5rem;
+    display: flex;
+    
+}
+.reg-header-div h3{
+    padding: 1rem;
+    background-color: red;
+    height: 100%;
+}
+
+.note-folder{
+    background-color: red;
+    width: 10rem;
+    height:30rem;
+    border: 2px solid black;
+}
+.reg-header-div button{
+    margin-left:auto;
+    margin-right: 3rem;
+}
+.modal{
+    background-color: green;
+    height: 5rem;
+    width: 25%;
+    border-radius: 15px;
+}
+.modal label{
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    height: 3rem;
+}
+.folder-container{
+    display: flex;
+    
+}
+.folder-name-input{
+    display: flex;
+}

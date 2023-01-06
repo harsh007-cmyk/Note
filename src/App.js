@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './Styles/Style.css';
+import Login from './Pages.jsx/Login';
+import Folders from './Components.jsx/Folders';
+import Register from './Pages.jsx/Register';
+import FolderContextProvider from './Contexts/FolderContext';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FolderContextProvider>
+    
+     <Folders/>
+      {/* <Login/>
+      <Register/> */}
+    
+    </FolderContextProvider>
   );
 }
 
