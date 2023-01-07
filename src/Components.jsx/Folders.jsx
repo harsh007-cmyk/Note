@@ -2,19 +2,31 @@ import React,{useContext, useState} from 'react'
 import { FolderContext } from '../Contexts/FolderContext';
 import Folder from './Folder'
 import Modal from './Modal';
-
+import { useNavigate } from 'react-router-dom';
 function Folders() {
-const[isOpen,setIsOpen]=useState(true);
+    const navigator=useNavigate();
+console.log('rendering');
+const[isOpen,setIsOpen]=useState(false);
+
+
+    const navigateTopage=()=>{
+        navigator('/Folders/add')
+    }
     const openModal=()=>{
+    
         setIsOpen(true);
     }
     const {noteFolder,setNotefolder}=useContext(FolderContext);
     console.log(noteFolder);
-    const folderArr=Object.keys(noteFolder).map(e=>{
-        console.log(noteFolder[e].heading);
-        return(
-           <Folder noteHeading={noteFolder[e].heading} content={noteFolder[e].content}/>
+
+    const folderArr=noteFolder.map(e=>{
         
+        return(
+           <Folder noteFolder={noteFolder}
+            setNotefolder={setNotefolder}
+            id={e.id} 
+            noteHeading={e.heading} 
+            content={e.content} index={e}/>
             
         )
     })
@@ -23,12 +35,17 @@ const[isOpen,setIsOpen]=useState(true);
     
     <div className='Folders'>
         <div className="reg-header-div">
-        <h3>Dgital Note</h3>
-        <button onClick={openModal}>Add new Note </button>
+            
+        <h3>Digital Note</h3>
+        <input type="text" className='search-field'/>
+        <button onClick={navigateTopage}>Add new Note </button>
         </div>
         <div className="folder-container">
-        {folderArr}
-        {isOpen&&<Modal/>}
+            <div className="note-folders">
+            {folderArr}
+            </div>
+        
+        {isOpen&&<Modal setIsOpen={setIsOpen}/>}
         </div>
 
     </div>

@@ -4,6 +4,7 @@
    padding: 0;
 }
 
+
 .Auth-div{
     height: 100vh;
     width: 100vw;
@@ -45,50 +46,107 @@
  }
 
 .Folders{
-    background-color:blue;
     margin: 0;
     
 }
 .reg-header-div{
-    background-color: green;
+    background-color: black;
+    color: white;
     height: 3.5rem;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     
 }
+
+.reg-header-div button{
+    margin-right: 15px;
+}
+
 .reg-header-div h3{
     padding: 1rem;
-    background-color: red;
     height: 100%;
 }
 
 .note-folder{
-    background-color: red;
-    width: 10rem;
-    height:30rem;
+    min-width: 10rem;
+    max-width: 15rem;
+    height:10rem;
     border: 2px solid black;
+    padding: 0 2px 0 10px;
+    overflow-x: hidden;
+    cursor: pointer;
 }
-.reg-header-div button{
-    margin-left:auto;
-    margin-right: 3rem;
-}
-.modal{
-    background-color: green;
-    height: 5rem;
-    width: 25%;
+
+.add-new{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
     border-radius: 15px;
+    padding: 5px;
 }
-.modal label{
+.add-new label{
     font-size: 12px;
     font-weight: 700;
     display: flex;
     flex-direction: column;
     padding: 5px;
     height: 3rem;
+    width: 60%;
 }
 .folder-container{
+    width: 100%;
     display: flex;
-    
+    justify-content: center;
+    padding: 15px;
+}
+.note-folders{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: space-between;
+    gap: 5px;
 }
 .folder-name-input{
     display: flex;
+    width: 100%;
+}
+.add-new textarea{
+    min-height:60vh;
+    width: 60%;
+}
+.add-btn{
+    width: 20%;
+    background-color: orange;
+}
+.search-field{
+    height: 50%;
+    width: 40%;
+}
+.folder-close{
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+.text-box-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color:black;
+    color: white;
+}
+.edit-del{
+    display: flex;
+    padding: 2px;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.text-area{
+    text-align: justify;
+    padding: 15px;
 }
