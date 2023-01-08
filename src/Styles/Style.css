@@ -4,7 +4,14 @@
    padding: 0;
 }
 
-
+button{
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    cursor: pointer;
+}
 .Auth-div{
     height: 100vh;
     width: 100vw;
@@ -12,6 +19,22 @@
     justify-content: center;
     align-items: center;
     background: rgba(80,86,84,0.3);
+    flex-direction: column;
+    gap: 10px;
+}
+.Auth-div div{
+    background-color: white;
+    width: 15%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+.text-content{
+    padding: 5px 15px;
+}
+.text-area h1{
+    padding: 5px 15px;
 }
 .user-form{
     display: flex;
@@ -56,8 +79,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
 
-    
 }
 
 .reg-header-div button{
@@ -73,12 +96,17 @@
     min-width: 10rem;
     max-width: 15rem;
     height:10rem;
-    border: 2px solid black;
+    border: 2px solid grey;
+    background-color: rgb(245, 245, 235);
+    border-radius: 5px;
     padding: 0 2px 0 10px;
-    overflow-x: hidden;
-    cursor: pointer;
+    overflow-x:hidden;
+    text-align: justify;
 }
-
+.note-folder button{
+    background-color: rgb(74, 68, 68);
+    color: white;
+}
 .add-new{
     
     width: 100%;
@@ -104,12 +132,18 @@
     justify-content: center;
     padding: 15px;
 }
+.folder-content{
+    overflow-x:hidden;
+    text-align: justify;
+    padding: 2px;
+}
 .note-folders{
     display: flex;
     flex-wrap: wrap;
     width: 80%;
-    justify-content: space-between;
-    gap: 5px;
+    justify-content:start;
+    gap: 15px;
+    border-radius: 5px;
 }
 .folder-name-input{
     display: flex;
@@ -124,8 +158,11 @@
     background-color: orange;
 }
 .search-field{
-    height: 50%;
+    width: 95%;
+}
+.search-label{
     width: 40%;
+    
 }
 .folder-close{
     padding: 1%;
@@ -146,7 +183,30 @@
     gap: 15px;
 }
 
-.text-area{
-    text-align: justify;
-    padding: 15px;
-}
+ 
+
+
+@media screen and (max-width: 800px) {
+    .note-folders{
+      flex-direction: column;
+      flex-direction: column;
+      background-color: white;
+        align-items: center;
+    }
+    .folder-container{
+        padding: 1;
+        
+    }
+    .reg-header-div{
+        height: 10%;
+    }
+    .search-field{
+        width: 80%;
+    }
+    .reg-header-div h3{
+        width: 5%;
+    }
+    .edit-del button{
+            height: 25px;
+    }
+  }

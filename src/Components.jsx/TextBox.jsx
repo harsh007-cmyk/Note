@@ -1,45 +1,52 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext,useEffect,useState } from 'react'
 import { FolderContext } from '../Contexts/FolderContext';
 import { useParams } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 
 function TextBox() {
+  console.log('text');
   const {id}=useParams();
   const  [edit,setEdit]=useState(false);
-  let selectedObj={};
   const navigator=useNavigate();
   
-  let selectedNote="";
+ 
+  
   const{noteHeading,setNoteHeading,
     setHeadingAdded,
     headingAdded,
     noteContent,
     noteFolder,setNotefolder,
     setNoteContent}=useContext(FolderContext);
-  
-  for(var el of noteFolder){
-    if(el.id==id){  
-      selectedObj=el;  
-      selectedNote=el.heading;
-
-    }
-  }
-  if(id!=='add'&&!selectedNote){
-    return (<div>
-      error
-    </div>)
-  }
+ 
+    let selectedObj=noteFolder[0];
+    console.log(selectedObj,'sele');
 
   const createContent=(e)=>{
     setNoteContent(e.target.value);
   }
-
+ 
 
   const navigateToFolders=()=>{
+
     navigator('/Folders');
   }
   const createNoteHeading=(e)=>{
        setNoteHeading(e.target.value);
+  }
+
+   console.log(id);
+  useEffect(()=>{
+    if(id!="add"){
+    setNoteHeading(noteFolder[0].heading);
+    setNoteContent(noteFolder[0].content);
+    }else{
+      setNoteHeading("");
+      setNoteContent("");
+    }
+   },[])
+   
+   if(id!='add'&&id!=noteFolder[0].id){
+    return(<div>Error</div>)
   }
 
 
@@ -53,13 +60,17 @@ function TextBox() {
    }
    if(!noteContent||!noteHeading){
     return ;   
-   } 
-  
+   }
+   
    setNotefolder((prev)=>{
       const obj={id:folderId,heading:noteHeading,content:noteContent};
-      // noteFolder.unshift(obj);
       if(edit){
-        
+        console.log("editing");
+       prev[0].heading=noteHeading;
+       prev[0].content=noteContent;
+       setEdit(!edit)
+       return [...prev];
+
       }
       console.log(obj);
       navigator(`/Folders/${folderId}`)
@@ -82,6 +93,16 @@ function TextBox() {
    }
     console.log(noteFolder);
     
+  const deleteNote=()=>{
+    
+    setNotefolder((prev)=>{
+      navigator('/Folders');
+      console.log(prev,"prev");
+      return prev.slice(1);
+    })
+    
+
+  }
 
   return (
     <div >
@@ -89,7 +110,7 @@ function TextBox() {
         <h2>Digital Note</h2>
         <div className="edit-del">
        {(id!='add')?(<> <button onClick={Edit}>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={deleteNote}>Delete</button>
                     <button onClick={navigateToFolders}>Back</button>
                     </>
        ):(<>
@@ -112,7 +133,7 @@ function TextBox() {
         </label>):(<h3>{noteHeading}</h3>)
         }
         
-        <textarea value={noteContent} onChange={createContent}></textarea>
+        <textarea value={noteContent} onChange={createContent} className='content-edit'></textarea>
         {!headingAdded&&<button className='add-btn' onClick={addNote}>save</button>}
     </div>  
         ):
