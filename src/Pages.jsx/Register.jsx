@@ -32,7 +32,7 @@ function Register() {
             localStorage.setItem('noteSignup',JSON.stringify(local));
             navigate('/');
         }else{
-            alert("Something went wrong");
+            alert("Password must contain atleast 8 characters, password and confirm password should be similar");
         }
     }
    
