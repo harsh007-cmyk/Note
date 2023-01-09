@@ -7,7 +7,7 @@ import FolderContextProvider, { FolderContext } from './Contexts/FolderContext';
 import { Route,Routes} from 'react-router-dom';  
 import TextBox from './Components.jsx/TextBox';
 import AuthGuard from './AuthGuard.jsx/AuthGuard';
-
+import Error from './Pages.jsx/Error';
 function App() {
   return (
     <FolderContextProvider>
@@ -24,6 +24,8 @@ function App() {
       <Route path='/' element={<AuthGuard/>}>
       <Route path='/Folders/:id'element={<TextBox/>}/> 
       </Route>
+       
+      <Route path='*'element={<Error/>}/>
        
     </Routes>
       

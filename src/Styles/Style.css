@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 *{
    box-sizing: border-box;
    margin: 0;
    padding: 0;
+   font-family: 'Roboto', sans-serif;
 }
 
 button{
@@ -22,14 +24,7 @@ button{
     flex-direction: column;
     gap: 10px;
 }
-.Auth-div div{
-    background-color: white;
-    width: 15%;
-    text-align: center;
-    padding: 5px;
-    border-radius: 5px;
 
-}
 .text-content{
     padding: 5px 15px;
 }
@@ -102,10 +97,11 @@ button{
     padding: 0 2px 0 10px;
     overflow-x:hidden;
     text-align: justify;
+    scrollbar-width: thin;
 }
-.note-folder button{
-    background-color: rgb(74, 68, 68);
-    color: white;
+
+.note-folder h2{
+    padding: 0 5px;
 }
 .add-new{
     
@@ -145,6 +141,9 @@ button{
     gap: 15px;
     border-radius: 5px;
 }
+.m-btns{
+    display: none;
+}
 .folder-name-input{
     display: flex;
     width: 100%;
@@ -162,12 +161,14 @@ button{
 }
 .search-label{
     width: 40%;
-    
 }
 .folder-close{
     padding: 1%;
     display: flex;
     justify-content: space-between;
+}
+.folder-close button{
+    border: 1px solid black;
 }
 .text-box-header{
     display: flex;
@@ -183,7 +184,13 @@ button{
     gap: 15px;
 }
 
- 
+.Error-container{
+    background-color: red;
+    height: 100vh;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 @media screen and (max-width: 800px) {
@@ -208,5 +215,19 @@ button{
     }
     .edit-del button{
             height: 25px;
+    }
+    .user-form{
+       min-width: 250px;
+    }
+    .Auth-div{
+        min-width:250px ;
+    }
+    .btns{
+        display: none;
+    }
+    .m-btns{
+        display:flex;
+        flex-direction: column;
+        gap: 5px;
     }
   }

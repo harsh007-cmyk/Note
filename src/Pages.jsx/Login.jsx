@@ -12,10 +12,17 @@ function Login() {
         e.preventDefault();
        var userObj=JSON.parse(localStorage.getItem("noteSignup"));
        if(!email)return;
+       if(!userObj){
+        alert("Please create Account");
+        return;
+       }
         const userDetails=userObj[email]; 
-       
+       if(!userDetails){
+        alert('Please create Account')
+        return;
+       }
        try{
-        if((userDetails.userEmail===email||userDetails.userName==email)&&(userDetails.Password==password)){
+        if((userDetails.userEmail===email)&&(userDetails.Password==password)){
             setIsAuth(true);
             navigate('/Folders');
             localStorage.setItem('user-note','logedin')
@@ -40,7 +47,7 @@ function Login() {
         <form className='user-form' action="">
             <h3>Login</h3>
             <label >
-               Username/Email
+               Email
             <input type="text"  onChange={userEmail} value={email}/>
             </label>
             <label htmlFor="">

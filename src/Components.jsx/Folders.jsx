@@ -58,9 +58,15 @@ function Folders() {
         <AiOutlineSearch/>
         <input type="text" onChange={findHeading} value={searchValue} className='search-field'/>
         </label>
-        
+        <div className="btns">
         <button onClick={navigateTopage}>Add new Note </button>
         <button onClick={logout}>logout </button>
+        </div>
+        <div className="m-btns">
+        <button onClick={navigateTopage}>Add new Note </button>
+        <button onClick={logout}>logout </button>
+        </div>
+
         </div>
         <div className="folder-container">
             <div className="note-folders">

@@ -2,17 +2,16 @@ import React, { useContext,useEffect,useState } from 'react'
 import { FolderContext } from '../Contexts/FolderContext';
 import { useParams } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
-
+import Error from '../Pages.jsx/Error';
 function TextBox() {
   console.log('text');
   const {id}=useParams();
   const  [edit,setEdit]=useState(false);
   const navigator=useNavigate();
-  
+  console.log(id);
  
   
   const{noteHeading,setNoteHeading,
-    setHeadingAdded,
     headingAdded,
     noteContent,
     noteFolder,setNotefolder,
@@ -46,7 +45,7 @@ function TextBox() {
    },[])
    
    if(id!='add'&&id!=noteFolder[0].id){
-    return(<div>Error</div>)
+    return(<Error/>)
   }
 
 
@@ -54,6 +53,9 @@ function TextBox() {
    const folderId=Math.floor(Math.random()*10000);
    var headingArr=noteFolder.map(e=>e.heading);
    var idx=headingArr.indexOf(noteHeading);
+   if(edit){
+    idx=headingArr.slice(1).indexOf(noteHeading);
+   }
    if(idx!=-1){
     alert(`${noteHeading} already exist`);
     return;
@@ -65,7 +67,6 @@ function TextBox() {
    setNotefolder((prev)=>{
       const obj={id:folderId,heading:noteHeading,content:noteContent};
       if(edit){
-        console.log("editing");
        prev[0].heading=noteHeading;
        prev[0].content=noteContent;
        setEdit(!edit)

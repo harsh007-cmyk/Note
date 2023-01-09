@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import {useNavigate} from 'react-router-dom';
 import { FolderContext } from '../Contexts/FolderContext';
+import Error from '../Pages.jsx/Error';
 function Folder({noteFolder,
                 setNotefolder,
                 id,
@@ -22,9 +23,7 @@ function Folder({noteFolder,
   }
 }
 if(id!=='add'&&!selectedNote){
-  return (<div>
-    error
-  </div>)
+  return (<Error/>)
 }
 
 
